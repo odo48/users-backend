@@ -36,8 +36,20 @@ const getUserPostsFromExternalSource = (id) => {
     });
 };
 
+const getCommentsByPostId = (id) => {
+  return axios
+    .get(`${EXTERNAL_URL}/comments?postId=${id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      return error;
+    });
+};
+
 module.exports = {
   getUsersFromExternalSource,
   getUserFromExternalSource,
   getUserPostsFromExternalSource,
+  getCommentsByPostId,
 };
