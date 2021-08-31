@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 router.get("/:id/details", async (req, res) => {
   let userDetails = {
     info: {},
-    comments: [],
+    posts: [],
   };
 
   const userInfoPromise = external_services
@@ -52,7 +52,7 @@ router.get("/:id/details", async (req, res) => {
     if (validResults.length > 1) {
       userDetails = {
         info: results[0],
-        comments: results[1],
+        posts: results[1],
       };
       res.send(userDetails);
     } else {
